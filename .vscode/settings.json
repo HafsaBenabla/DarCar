@@ -1,0 +1,8 @@
+{
+  "css.lint.unknownAtRules": "ignore",
+  "tailwindCSS.validate": true,
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "editor.suggest.showWords": false
+}
