@@ -1,24 +1,21 @@
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useState, useEffect, useRef } from 'react';
-import { FaBars, FaTimes, FaUser, FaChevronDown } from 'react-icons/fa';
+import { Link, useLocation } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { FaBars, FaTimes, FaUser } from 'react-icons/fa';
 
-const Navbar = () => {
+const Navbar = ({ lightOnTop = false }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
-  const navigate = useNavigate();
 
-  // Gestion du scroll
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 10);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-
+  
+  const navIsSolid = isScrolled || lightOnTop;
 
   const navLinks = [
     { name: 'Accueil', path: '/' },
@@ -27,126 +24,87 @@ const Navbar = () => {
     { name: 'Contact', path: '/contact' },
   ];
 
-
+  const genericHamburgerLine = `h-1 w-6 my-1 rounded-full transition ease transform duration-300`;
 
   return (
-    <nav 
-      className="fixed w-full z-50 transition-all duration-300 bg-transparent px-4"
-    >
-      
-        <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <div className="flex items-center">
-            <Link to="/" className="text-4xl font-extrabold text-black">
-              Dar<span className="text-primary-800">Car</span>
+    <>
+      <nav 
+        className={`fixed w-full z-50 transition-all duration-300 ${navIsSolid ? 'bg-white shadow-md' : 'bg-transparent'}`}
+      >
+        <div className="container mx-auto px-4">
+          <div className="flex justify-between items-center h-20">
+            {/* Logo */}
+            <Link to="/" className={`text-3xl font-extrabold ${navIsSolid ? 'text-gray-800' : 'text-white'}`}>
+              Dar<span className="text-red-500">Car</span>
             </Link>
-          </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:block">
-            <div className="flex items-center space-x-4">
-              {navLinks.map((item) => (
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center space-x-8">
+              {navLinks.map((link) => (
                 <Link
-                  key={item.name}
-                  to={item.path}
-                  className={`px-2 py-2 rounded-md text-xl font-bold relative group ${
-                    location.pathname === item.path 
-                      ? 'text-black font-bold underline underline-offset-8' 
-                      : 'text-black hover:text-gray-800'
-                  } transition-colors duration-200`}
+                  key={link.name}
+                  to={link.path}
+                  className={`text-lg font-semibold transition-colors duration-300 relative group ${
+                    navIsSolid ? 'text-gray-700 hover:text-red-600' : 'text-white hover:text-red-300'
+                  }`}
                 >
-                  {item.name}
-                  <span className={`absolute bottom-0 left-0 w-0 h-0.5 bg-primary-600 transition-all duration-300 group-hover:w-full ${
-                    location.pathname === item.path ? 'w-full' : ''
-                  }`}></span>
+                  {link.name}
+                  <span className={`absolute bottom-0 left-0 w-0 h-0.5 bg-red-500 transition-all duration-300 group-hover:w-full ${location.pathname === link.path ? 'w-full' : ''}`}></span>
                 </Link>
               ))}
             </div>
-          </div>
 
-          {/* Right side buttons */}
-          <div className="hidden md:flex items-center space-x-4">
-            <Link
-              to="/login"
-              className="flex items-center text-black hover:text-gray-800 transition-colors text-2xl font-bold"
-            >
-              <div className="flex items-center justify-center h-10 w-10 rounded-full bg-gray-100 text-gray-600 mr-2">
-                <FaUser className="h-4 w-4" />
-              </div>
-              <span className="text-2xl font-bold">Connexion</span>
-            </Link>
-            
-            <Link
-              to="/become-pro"
-              className="px-5 py-2.5 bg-primary-600 text-white text-xl font-bold rounded-lg hover:bg-primary-700 transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-md"
-            >
-              Devenir prestataire
-            </Link>
-          </div>
+            {/* Right side buttons - Desktop */}
+            <div className="hidden md:flex items-center space-x-4">
+              <Link to="/login" className={`flex items-center space-x-2 font-medium ${navIsSolid ? 'text-gray-600 hover:text-red-600' : 'text-white hover:text-red-300'}`}>
+                <FaUser />
+                <span>Connexion</span>
+              </Link>
+              <Link to="/become-pro" className="bg-red-600 text-white px-5 py-2.5 rounded-lg font-semibold hover:bg-red-700 transition-all duration-300 transform hover:scale-105 shadow-md">
+                Devenir prestataire
+              </Link>
+            </div>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden flex items-center space-x-3">
-
-            
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-primary-600 focus:outline-none"
-              aria-expanded="false"
-            >
-              <span className="sr-only">Ouvrir le menu principal</span>
-              {isOpen ? (
-                <FaTimes className="block h-6 w-6" />
-              ) : (
-                <FaBars className="block h-6 w-6" />
-              )}
-            </button>
+            {/* Mobile menu button */}
+            <div className="md:hidden">
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="flex flex-col h-12 w-12 justify-center items-center group"
+              >
+                <div className={`${genericHamburgerLine} ${isOpen ? "rotate-45 translate-y-3" : ""} ${navIsSolid && !isOpen ? "bg-gray-800" : "bg-white"}`} />
+                <div className={`${genericHamburgerLine} ${isOpen ? "opacity-0" : ""} ${navIsSolid && !isOpen ? "bg-gray-800" : "bg-white"}`} />
+                <div className={`${genericHamburgerLine} ${isOpen ? "-rotate-45 -translate-y-3" : ""} ${navIsSolid && !isOpen ? "bg-gray-800" : "bg-white"}`} />
+              </button>
+            </div>
           </div>
         </div>
-      {/* Mobile menu */}
-      <div className={`md:hidden bg-white shadow-lg rounded-b-lg transition-all duration-300 ease-in-out overflow-hidden ${
-        isOpen ? 'max-h-screen' : 'max-h-0'
-      }`}>
-        <div className="pt-2 pb-4 space-y-1">
+      </nav>
 
-          {navLinks.map((item) => (
+      {/* Mobile Menu */}
+      <div className={`fixed top-0 left-0 w-full h-full bg-black bg-opacity-90 z-40 transition-transform duration-500 ease-in-out ${isOpen ? 'transform-none' : '-translate-y-full'}`}>
+        <div className="flex flex-col items-center justify-center h-full space-y-8">
+          {navLinks.map((link) => (
             <Link
-              key={item.name}
-              to={item.path}
-              className={`block py-2.5 rounded-md text-2xl font-bold ${
-                location.pathname === item.path
-                  ? 'text-black underline underline-offset-8'
-                  : 'text-black hover:text-gray-800'
-              }`}
+              key={link.name}
+              to={link.path}
+              className={`text-white text-3xl font-bold hover:text-red-400 transition-colors ${location.pathname === link.path ? 'text-red-500' : ''}`}
               onClick={() => setIsOpen(false)}
             >
-              {item.name}
+              {link.name}
             </Link>
           ))}
-          
-          <div className="pt-2 border-t border-gray-200 mt-2">
-
-            <Link
-              to="/login"
-              className="block px-2 py-2.5 text-2xl font-bold text-black hover:text-gray-800 rounded-md"
-              onClick={() => setIsOpen(false)}
-            >
-              <div className="flex items-center">
-                <FaUser className="h-4 w-4 mr-2 text-primary-600" />
-                Connexion / Inscription
-              </div>
+          <div className="pt-8 border-t border-gray-700 w-4/5 text-center flex flex-col items-center space-y-6">
+            <Link to="/login" className="text-white text-2xl flex items-center space-x-2" onClick={() => setIsOpen(false)}>
+              <FaUser />
+              <span>Connexion</span>
             </Link>
-            
-            <Link
-              to="/become-pro"
-              className="block w-full mt-2 px-4 py-2.5 text-center text-2xl font-bold text-white bg-primary-600 hover:bg-primary-700 rounded-lg transition-colors"
-              onClick={() => setIsOpen(false)}
-            >
+            <Link to="/become-pro" className="bg-red-600 text-white px-8 py-4 rounded-lg text-xl font-bold" onClick={() => setIsOpen(false)}>
               Devenir prestataire
             </Link>
           </div>
         </div>
       </div>
-    </nav>
+    </>
   );
 };
 

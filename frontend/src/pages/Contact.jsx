@@ -33,7 +33,7 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
-      <Navbar />
+      <Navbar lightOnTop={true} />
       
       <main className="flex-grow pt-20">
         {/* En-tête */}
