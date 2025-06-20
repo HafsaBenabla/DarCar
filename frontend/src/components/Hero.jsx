@@ -2,7 +2,14 @@ import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
-    <div className="relative bg-gradient-to-b from-primary-50 to-white overflow-hidden">
+    <div className="relative min-h-screen flex items-center overflow-hidden">
+      {/* Background image */}
+      <div
+        className="absolute inset-0 z-0 bg-cover bg-center blur-[2px]"
+        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')" }}
+      ></div>
+      {/* Overlay for readability */}
+      <div className="absolute inset-0 z-10 bg-white bg-opacity-10"></div>
       {/* Fond avec dégradé et motif */}
       <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/light-wool.png')] opacity-10"></div>
       
@@ -120,21 +127,7 @@ const Hero = () => {
         </div>
       </div>
       
-      {/* Image d'illustration */}
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
-        <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-          <img
-            className="w-full h-auto"
-            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-            alt="Professionnel à votre service"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent"></div>
-          <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-            <h3 className="text-2xl font-bold mb-2">Des professionnels qualifiés près de chez vous</h3>
-            <p className="text-gray-200">Plus de 10 000 professionnels vérifiés prêts à vous aider</p>
-          </div>
-        </div>
-      </div>
+
     </div>
   );
 };
