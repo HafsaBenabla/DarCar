@@ -115,7 +115,7 @@ const Home = () => {
   ]);
 
   return (
-    <div className="min-h-screen flex flex-col bg-amber-50">
+    <div className="min-h-screen flex flex-col bg-red-50">
       <Navbar />
       <main className="flex-grow">
         <Hero />
@@ -143,7 +143,7 @@ const Home = () => {
             </div>
             
             <div className="text-center mt-12">
-              <button className="px-8 py-3 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition-colors duration-300 font-medium text-lg">
+              <button className="px-8 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors duration-300 font-medium text-lg">
                 Voir tous les services
               </button>
             </div>
@@ -159,33 +159,33 @@ const Home = () => {
             </div>
             
             <div className="grid md:grid-cols-4 gap-8">
-              <div className="text-center p-6 bg-white rounded-xl hover:shadow-lg transition-all duration-300 border border-amber-50">
-                <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <FaStar className="text-2xl text-amber-500" />
+              <div className="text-center p-6 bg-white rounded-xl hover:shadow-lg transition-all duration-300 border border-red-50">
+                <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <FaStar className="text-2xl text-red-600" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2 text-gray-900">Professionnels qualifiés</h3>
                 <p className="text-gray-600">Tous nos prestataires sont soigneusement sélectionnés et vérifiés</p>
               </div>
               
-              <div className="text-center p-6 bg-white rounded-xl hover:shadow-lg transition-all duration-300 border border-amber-50">
-                <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <FaShieldAlt className="text-2xl text-amber-500" />
+              <div className="text-center p-6 bg-white rounded-xl hover:shadow-lg transition-all duration-300 border border-red-50">
+                <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <FaShieldAlt className="text-2xl text-red-600" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2 text-gray-900">Service garanti</h3>
                 <p className="text-gray-600">Satisfaction garantie ou remboursé selon nos conditions</p>
               </div>
               
-              <div className="text-center p-6 bg-white rounded-xl hover:shadow-lg transition-all duration-300 border border-amber-50">
-                <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <FaClock className="text-2xl text-amber-500" />
+              <div className="text-center p-6 bg-white rounded-xl hover:shadow-lg transition-all duration-300 border border-red-50">
+                <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <FaClock className="text-2xl text-red-600" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2 text-gray-900">Disponible 7j/7</h3>
                 <p className="text-gray-600">Service disponible tous les jours, même les week-ends</p>
               </div>
               
-              <div className="text-center p-6 bg-white rounded-xl hover:shadow-lg transition-all duration-300 border border-amber-50">
-                <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <FaSmile className="text-2xl text-amber-500" />
+              <div className="text-center p-6 bg-white rounded-xl hover:shadow-lg transition-all duration-300 border border-red-50">
+                <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <FaSmile className="text-2xl text-red-600" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2 text-gray-900">+10 000 clients</h3>
                 <p className="text-gray-600">Une communauté de clients satisfaits à travers le pays</p>
@@ -195,7 +195,7 @@ const Home = () => {
         </section>
         
         {/* Section Comment ça marche */}
-        <section className="py-16 bg-amber-50">
+        <section className="py-16 bg-red-50">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Comment ça marche ?</h2>
@@ -203,12 +203,12 @@ const Home = () => {
             </div>
             
             <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-              <div className="relative text-center p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-amber-100">
-                <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 w-10 h-10 bg-amber-600 text-white rounded-full flex items-center justify-center font-bold text-lg">
+              <div className="relative text-center p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-red-100">
+                <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 w-10 h-10 bg-red-600 text-white rounded-full flex items-center justify-center font-bold text-lg">
                   1
                 </div>
-                <div className="w-20 h-20 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-6 mt-4">
-                  <svg className="w-10 h-10 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <div className="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6 mt-4">
+                  <svg className="w-10 h-10 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                   </svg>
                 </div>
@@ -216,12 +216,12 @@ const Home = () => {
                 <p className="text-gray-600">Parcourez nos services et sélectionnez celui qui correspond à vos besoins</p>
               </div>
               
-              <div className="relative text-center p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-amber-100">
-                <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 w-10 h-10 bg-amber-600 text-white rounded-full flex items-center justify-center font-bold text-lg">
+              <div className="relative text-center p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-red-100">
+                <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 w-10 h-10 bg-red-600 text-white rounded-full flex items-center justify-center font-bold text-lg">
                   2
                 </div>
-                <div className="w-20 h-20 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-6 mt-4">
-                  <svg className="w-10 h-10 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <div className="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6 mt-4">
+                  <svg className="w-10 h-10 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                   </svg>
                 </div>
@@ -229,12 +229,12 @@ const Home = () => {
                 <p className="text-gray-600">Choisissez une date et une heure qui vous conviennent</p>
               </div>
               
-              <div className="relative text-center p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-amber-100">
-                <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 w-10 h-10 bg-amber-600 text-white rounded-full flex items-center justify-center font-bold text-lg">
+              <div className="relative text-center p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-red-100">
+                <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 w-10 h-10 bg-red-600 text-white rounded-full flex items-center justify-center font-bold text-lg">
                   3
                 </div>
-                <div className="w-20 h-20 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-6 mt-4">
-                  <svg className="w-10 h-10 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <div className="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6 mt-4">
+                  <svg className="w-10 h-10 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                   </svg>
                 </div>
@@ -274,11 +274,11 @@ const Home = () => {
                   rating: 4
                 }
               ].map((testimonial, index) => (
-                <div key={index} className="bg-amber-50 p-6 rounded-xl border border-amber-100">
+                <div key={index} className="bg-red-50 p-6 rounded-xl border border-red-100">
                   <div className="flex items-center mb-4">
-                    <div className="text-amber-400 flex">
+                    <div className="text-red-400 flex">
                       {[...Array(5)].map((_, i) => (
-                        <svg key={i} className={`w-5 h-5 ${i < testimonial.rating ? 'text-amber-400' : 'text-gray-300'}`} fill="currentColor" viewBox="0 0 20 20">
+                        <svg key={i} className={`w-5 h-5 ${i < testimonial.rating ? 'text-red-400' : 'text-gray-300'}`} fill="currentColor" viewBox="0 0 20 20">
                           <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                         </svg>
                       ))}
@@ -286,12 +286,12 @@ const Home = () => {
                   </div>
                   <p className="text-gray-700 mb-4 italic">"{testimonial.content}"</p>
                   <div className="flex items-center">
-                    <div className="w-10 h-10 rounded-full bg-amber-200 flex items-center justify-center text-amber-700 font-bold mr-3">
+                    <div className="w-10 h-10 rounded-full bg-red-200 flex items-center justify-center text-red-700 font-bold mr-3">
                       {testimonial.name.charAt(0)}
                     </div>
                     <div>
                       <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
-                      <p className="text-sm text-amber-600">{testimonial.role}</p>
+                      <p className="text-sm text-red-600">{testimonial.role}</p>
                     </div>
                   </div>
                 </div>
@@ -301,12 +301,12 @@ const Home = () => {
         </section>
         
         {/* CTA Section */}
-        <section className="py-16 bg-amber-600">
+        <section className="py-16 bg-red-600">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Prêt à simplifier votre quotidien ?</h2>
-            <p className="text-xl text-amber-100 mb-8 max-w-2xl mx-auto">Rejoignez des milliers de clients satisfaits et profitez de services de qualité à domicile</p>
+            <p className="text-xl text-red-100 mb-8 max-w-2xl mx-auto">Rejoignez des milliers de clients satisfaits et profitez de services de qualité à domicile</p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <button className="px-8 py-3 bg-white text-amber-700 rounded-lg hover:bg-amber-50 transition-colors duration-300 font-medium text-lg">
+              <button className="px-8 py-3 bg-white text-red-700 rounded-lg hover:bg-red-50 transition-colors duration-300 font-medium text-lg">
                 Réserver un service
               </button>
               <button className="px-8 py-3 border-2 border-white text-white rounded-lg hover:bg-white hover:bg-opacity-10 transition-colors duration-300 font-medium text-lg">

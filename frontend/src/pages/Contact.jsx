@@ -49,7 +49,7 @@ const Contact = () => {
         <div className="container mx-auto px-4 py-16">
           <div className="grid md:grid-cols-2 gap-12">
             {/* Formulaire de contact */}
-            <div className="bg-white p-8 rounded-2xl shadow-xl border border-red-100 animate-fade-in">
+            <div className="bg-white p-8 rounded-2xl shadow-xl border border-red-100 animate-fade-in hover:shadow-2xl transition-shadow duration-300">
               <h2 className="text-2xl font-extrabold text-red-600 mb-6 flex items-center gap-2"><FaEnvelope className="inline-block text-red-500" /> Envoyez-nous un message</h2>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="relative">
@@ -125,7 +125,7 @@ const Contact = () => {
             </div>
 
             {/* Informations de contact */}
-            <div className="bg-white p-8 rounded-2xl shadow-xl border border-red-100 flex flex-col justify-center animate-fade-in">
+            <div className="bg-white p-8 rounded-2xl shadow-xl border border-red-100 flex flex-col justify-center animate-fade-in hover:shadow-2xl transition-shadow duration-300">
               <h2 className="text-2xl font-extrabold text-red-600 mb-6 flex items-center gap-2"><FaMapMarkerAlt className="inline-block text-red-500" /> Nos coordonnées</h2>
               <ul className="space-y-6">
                 <li className="flex items-center gap-4 text-gray-700">
@@ -148,12 +148,7 @@ const Contact = () => {
             </div> {/* Close contact info column */}
           </div> {/* Close grid */}
 
-          {/* Carte (espace réservé) */}
-          <div className="mt-16 bg-gray-200 rounded-xl overflow-hidden" style={{ height: '400px' }}>
-            <div className="w-full h-full flex items-center justify-center text-gray-500">
-              <p>Carte d'emplacement (intégrez Google Maps ici)</p>
-            </div>
-          </div>
+
         </div>
       </main>
 
