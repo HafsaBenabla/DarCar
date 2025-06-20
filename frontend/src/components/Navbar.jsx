@@ -65,7 +65,7 @@ const Navbar = () => {
           </div>
 
           {/* Right side buttons */}
-          <div className="hidden md:flex items-center space-x-3">
+          <div className="hidden md:flex items-center space-x-4">
             <Link
               to="/login"
               className="flex items-center text-black hover:text-gray-800 transition-colors text-2xl font-bold"

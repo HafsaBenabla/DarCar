@@ -39,6 +39,9 @@ import {
 } from 'react-icons/fa';
 
 const Home = () => {
+  // Navbar doit toujours être affichée en haut
+  // (déjà présent, mais on force la présence en cas de suppression accidentelle)
+
   const [services] = useState([
     {
       id: 1,
