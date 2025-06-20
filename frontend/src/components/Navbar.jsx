@@ -31,25 +31,25 @@ const Navbar = ({ lightOnTop = false }) => {
       <nav 
         className={`fixed w-full z-50 transition-all duration-300 ${navIsSolid ? 'bg-white shadow-md' : 'bg-transparent'}`}
       >
-        <div className="container mx-auto px-4">
+        <div className="w-full mx-auto px-2 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             {/* Logo */}
-            <Link to="/" className={`text-3xl font-extrabold ${navIsSolid ? 'text-gray-800' : 'text-white'}`}>
+            <Link to="/" className={`text-4xl font-extrabold ${navIsSolid ? 'text-gray-800' : 'text-white'}`}>
               Dar<span className="text-red-500">Car</span>
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
+            <div className="hidden md:flex items-center space-x-10">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   to={link.path}
-                  className={`text-lg font-semibold transition-colors duration-300 relative group ${
+                  className={`text-xl font-semibold transition-colors duration-300 relative group ${
                     navIsSolid ? 'text-gray-700 hover:text-red-600' : 'text-white hover:text-red-300'
                   }`}
                 >
                   {link.name}
-                  <span className={`absolute bottom-0 left-0 w-0 h-0.5 bg-red-500 transition-all duration-300 group-hover:w-full ${location.pathname === link.path ? 'w-full' : ''}`}></span>
+                  <span className={`absolute bottom--1 left-0 w-0 h-0.5 bg-red-500 transition-all duration-300 group-hover:w-full ${location.pathname === link.path ? 'w-full' : ''}`}></span>
                 </Link>
               ))}
             </div>
