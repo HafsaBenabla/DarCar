@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -100,17 +100,32 @@ module.exports = {
         'card-hover': '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
       },
       animation: {
-        'fade-in': 'fadeIn 0.5s ease-in-out',
-        'slide-up': 'slideUp 0.5s ease-out',
+        'fade-in': 'fade-in 0.8s ease-out forwards',
+        'fade-in-down': 'fade-in-down 0.8s ease-out forwards',
+        'fade-in-up': 'fade-in-up 0.8s ease-out forwards',
+        'fade-in-left': 'fade-in-left 0.8s ease-out forwards',
+        'fade-in-right': 'fade-in-right 0.8s ease-out forwards',
       },
       keyframes: {
-        fadeIn: {
-          '0%': { opacity: '0' },
-          '100%': { opacity: '1' },
+        'fade-in': {
+          from: { opacity: 0 },
+          to: { opacity: 1 },
         },
-        slideUp: {
-          '0%': { transform: 'translateY(20px)', opacity: '0' },
-          '100%': { transform: 'translateY(0)', opacity: '1' },
+        'fade-in-down': {
+          from: { opacity: 0, transform: 'translateY(-20px)' },
+          to: { opacity: 1, transform: 'translateY(0)' },
+        },
+        'fade-in-up': {
+          from: { opacity: 0, transform: 'translateY(20px)' },
+          to: { opacity: 1, transform: 'translateY(0)' },
+        },
+        'fade-in-left': {
+          from: { opacity: 0, transform: 'translateX(-20px)' },
+          to: { opacity: 1, transform: 'translateX(0)' },
+        },
+        'fade-in-right': {
+          from: { opacity: 0, transform: 'translateX(20px)' },
+          to: { opacity: 1, transform: 'translateX(0)' },
         },
       },
     },
