@@ -35,13 +35,13 @@ const Contact = () => {
     <div className="min-h-screen flex flex-col">
       <Navbar />
       
-      <main className="flex-grow">
+      <main className="flex-grow bg-gray-50">
         {/* Hero Section */}
-        <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
+        <div className="bg-gradient-to-r from-red-600 to-red-500 text-white py-20 shadow-md">
           <div className="container mx-auto px-4 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Contactez-nous</h1>
-            <p className="text-xl max-w-3xl mx-auto">
-              Notre équipe est à votre écoute pour répondre à toutes vos questions
+            <h1 className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">Contactez-nous</h1>
+            <p className="text-lg md:text-xl max-w-2xl mx-auto font-medium opacity-90">
+              Notre équipe est à votre écoute pour répondre à toutes vos questions ou demandes de service.
             </p>
           </div>
         </div>
@@ -49,13 +49,10 @@ const Contact = () => {
         <div className="container mx-auto px-4 py-16">
           <div className="grid md:grid-cols-2 gap-12">
             {/* Formulaire de contact */}
-            <div className="bg-white p-8 rounded-xl shadow-lg">
-              <h2 className="text-2xl font-bold mb-6">Envoyez-nous un message</h2>
+            <div className="bg-white p-8 rounded-2xl shadow-xl border border-red-100 animate-fade-in">
+              <h2 className="text-2xl font-extrabold text-red-600 mb-6 flex items-center gap-2"><FaEnvelope className="inline-block text-red-500" /> Envoyez-nous un message</h2>
               <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                    Votre nom complet *
-                  </label>
+                <div className="relative">
                   <input
                     type="text"
                     id="name"
@@ -63,15 +60,15 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="Votre nom"
+                    className="peer w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-red-400 bg-gray-50 transition"
+                    placeholder=" "
                   />
+                  <label htmlFor="name" className="absolute left-4 top-3 text-gray-500 bg-white px-1 transition-all duration-200 pointer-events-none peer-placeholder-shown:top-3 peer-placeholder-shown:text-gray-400 peer-focus:-top-4 peer-focus:text-xs peer-focus:text-red-600 peer-focus:bg-white">
+                    Votre nom complet *
+                  </label>
                 </div>
 
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                    Adresse email *
-                  </label>
+                <div className="relative">
                   <input
                     type="email"
                     id="email"
@@ -79,128 +76,77 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="votre@email.com"
+                    className="peer w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-red-400 bg-gray-50 transition"
+                    placeholder=" "
                   />
+                  <label htmlFor="email" className="absolute left-4 top-3 text-gray-500 bg-white px-1 transition-all duration-200 pointer-events-none peer-placeholder-shown:top-3 peer-placeholder-shown:text-gray-400 peer-focus:-top-4 peer-focus:text-xs peer-focus:text-red-600 peer-focus:bg-white">
+                    Adresse email *
+                  </label>
                 </div>
 
-                <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
-                    Objet *
-                  </label>
+                <div className="relative">
                   <input
                     type="text"
                     id="subject"
                     name="subject"
                     value={formData.subject}
                     onChange={handleChange}
-                    required
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="Objet de votre message"
+                    className="peer w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-red-400 bg-gray-50 transition"
+                    placeholder=" "
                   />
+                  <label htmlFor="subject" className="absolute left-4 top-3 text-gray-500 bg-white px-1 transition-all duration-200 pointer-events-none peer-placeholder-shown:top-3 peer-placeholder-shown:text-gray-400 peer-focus:-top-4 peer-focus:text-xs peer-focus:text-red-600 peer-focus:bg-white">
+                    Sujet
+                  </label>
                 </div>
 
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                    Votre message *
-                  </label>
+                <div className="relative">
                   <textarea
                     id="message"
                     name="message"
-                    rows="5"
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="Décrivez-nous votre demande..."
-                  ></textarea>
+                    rows={5}
+                    className="peer w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-red-400 bg-gray-50 transition resize-none"
+                    placeholder=" "
+                  />
+                  <label htmlFor="message" className="absolute left-4 top-3 text-gray-500 bg-white px-1 transition-all duration-200 pointer-events-none peer-placeholder-shown:top-3 peer-placeholder-shown:text-gray-400 peer-focus:-top-4 peer-focus:text-xs peer-focus:text-red-600 peer-focus:bg-white">
+                    Message *
+                  </label>
                 </div>
 
-                <div>
-                  <button
-                    type="submit"
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition duration-300"
-                  >
-                    Envoyer le message
-                  </button>
-                </div>
+                <button
+                  type="submit"
+                  className="w-full bg-gradient-to-r from-red-600 to-red-500 hover:from-red-700 hover:to-red-600 text-white font-bold py-3 px-6 rounded-lg shadow transition-all duration-200 transform hover:-translate-y-1 hover:shadow-lg"
+                >
+                  Envoyer
+                </button>
               </form>
             </div>
 
             {/* Informations de contact */}
-            <div>
-              <h2 className="text-2xl font-bold mb-6">Nos coordonnées</h2>
-              <p className="text-gray-600 mb-8">
-                Notre équipe est disponible pour répondre à toutes vos questions. N'hésitez pas à nous contacter par téléphone, email ou en remplissant le formulaire.
-              </p>
-
-              <div className="space-y-6">
-                <div className="flex items-start">
-                  <div className="bg-blue-100 p-3 rounded-full text-blue-600 mr-4">
-                    <FaMapMarkerAlt className="text-xl" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-lg">Adresse</h3>
-                    <p className="text-gray-600">123 Avenue des Services<br />75000 Paris, France</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start">
-                  <div className="bg-blue-100 p-3 rounded-full text-blue-600 mr-4">
-                    <FaPhoneAlt className="text-xl" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-lg">Téléphone</h3>
-                    <p className="text-gray-600">
-                      <a href="tel:+33123456789" className="hover:text-blue-600">+33 1 23 45 67 89</a><br />
-                      <span className="text-sm">Lun-Ven: 9h-18h</span>
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start">
-                  <div className="bg-blue-100 p-3 rounded-full text-blue-600 mr-4">
-                    <FaEnvelope className="text-xl" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-lg">Email</h3>
-                    <p className="text-gray-600">
-                      <a href="mailto:contact@darcar.com" className="hover:text-blue-600">contact@darcar.com</a><br />
-                      <span className="text-sm">Réponse sous 24h</span>
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start">
-                  <div className="bg-blue-100 p-3 rounded-full text-blue-600 mr-4">
-                    <FaClock className="text-xl" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-lg">Horaires d'ouverture</h3>
-                    <p className="text-gray-600">
-                      Lundi - Vendredi: 9h - 18h<br />
-                      Samedi: 9h - 13h<br />
-                      Dimanche: Fermé
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-8 bg-blue-50 p-6 rounded-lg">
-                <h3 className="font-semibold text-lg mb-3">Besoin d'aide immédiate ?</h3>
-                <p className="text-gray-600 mb-4">
-                  Pour les urgences, nos conseillers sont disponibles 24h/24 au :
-                </p>
-                <a 
-                  href="tel:+33612345678" 
-                  className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-lg transition duration-300"
-                >
-                  <FaPhoneAlt className="inline mr-2" />
-                  +33 6 12 34 56 78
-                </a>
-              </div>
-            </div>
-          </div>
+            <div className="bg-white p-8 rounded-2xl shadow-xl border border-red-100 flex flex-col justify-center animate-fade-in">
+              <h2 className="text-2xl font-extrabold text-red-600 mb-6 flex items-center gap-2"><FaMapMarkerAlt className="inline-block text-red-500" /> Nos coordonnées</h2>
+              <ul className="space-y-6">
+                <li className="flex items-center gap-4 text-gray-700">
+                  <FaMapMarkerAlt className="text-red-500 text-xl" />
+                  <span>123 Avenue de la République, Paris</span>
+                </li>
+                <li className="flex items-center gap-4 text-gray-700">
+                  <FaPhoneAlt className="text-red-500 text-xl" />
+                  <a href="tel:+33123456789" className="text-red-600 hover:text-red-700">+33 1 23 45 67 89</a>
+                </li>
+                <li className="flex items-center gap-4 text-gray-700">
+                  <FaEnvelope className="text-red-500 text-xl" />
+                  <a href="mailto:contact@darcar.com" className="text-red-600 hover:text-red-700">contact@darcar.com</a>
+                </li>
+                <li className="flex items-center gap-4 text-gray-700">
+                  <FaClock className="text-red-500 text-xl" />
+                  <span>Lun - Ven : 8h - 19h</span>
+                </li>
+              </ul>
+            </div> {/* Close contact info column */}
+          </div> {/* Close grid */}
 
           {/* Carte (espace réservé) */}
           <div className="mt-16 bg-gray-200 rounded-xl overflow-hidden" style={{ height: '400px' }}>
@@ -211,7 +157,7 @@ const Contact = () => {
         </div>
       </main>
 
-      <footer className="bg-gray-800 text-white py-8">
+      <footer className="bg-gray-800 text-white py-8 mt-auto">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-4 md:mb-0">
@@ -219,10 +165,10 @@ const Contact = () => {
               <p className="text-gray-400">Votre plateforme de services à domicile</p>
             </div>
             <div className="flex space-x-6">
-              <a href="/about" className="hover:text-blue-400">À propos</a>
-              <a href="/services" className="hover:text-blue-400">Services</a>
-              <a href="/contact" className="hover:text-blue-400">Contact</a>
-              <a href="/privacy" className="hover:text-blue-400">Confidentialité</a>
+              <a href="/about" className="hover:text-red-400 transition">À propos</a>
+              <a href="/services" className="hover:text-red-400 transition">Services</a>
+              <a href="/contact" className="hover:text-red-400 transition">Contact</a>
+              <a href="/privacy" className="hover:text-red-400 transition">Confidentialité</a>
             </div>
           </div>
           <div className="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400">
