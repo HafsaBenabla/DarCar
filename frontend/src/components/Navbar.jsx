@@ -39,7 +39,7 @@ const Navbar = ({ lightOnTop = false }) => {
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-10">
+            <div className="hidden md:flex items-center space-x-16">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
@@ -55,7 +55,7 @@ const Navbar = ({ lightOnTop = false }) => {
             </div>
 
             {/* Right side buttons - Desktop */}
-            <div className="hidden md:flex items-center space-x-4">
+            <div className="hidden md:flex items-center space-x-8">
               <Link to="/login" className={`flex items-center space-x-2 font-medium ${navIsSolid ? 'text-gray-600 hover:text-red-600' : 'text-white hover:text-red-300'}`}>
                 <FaUser />
                 <span>Connexion</span>
