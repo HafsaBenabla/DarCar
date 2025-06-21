@@ -1,30 +1,44 @@
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Hero = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedLocation, setSelectedLocation] = useState('Partout au Maroc');
+  const navigate = useNavigate();
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (searchTerm.trim()) {
+      navigate(`/services?search=${encodeURIComponent(searchTerm)}&location=${encodeURIComponent(selectedLocation)}`);
+    } else {
+      navigate('/services');
+    }
+  };
+
   return (
-    <div className="relative min-h-screen flex items-center overflow-hidden">
+    <div className="relative min-h-screen flex items-center overflow-hidden" style={{ userSelect: 'text' }}>
       {/* Background image */}
       <div
         className="absolute inset-0 z-0 bg-cover bg-center blur-[2px]"
         style={{ backgroundImage: "url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')" }}
       ></div>
       {/* Overlay for readability */}
-      <div className="absolute inset-0 z-10 bg-white bg-opacity-10"></div>
+      <div className="absolute inset-0 z-10 bg-white bg-opacity-10" style={{ pointerEvents: 'none' }}></div>
       {/* Fond avec dégradé et motif */}
-      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/light-wool.png')] opacity-10"></div>
+      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/light-wool.png')] opacity-10" style={{ pointerEvents: 'none' }}></div>
       
       {/* Formes décoratives */}
-      <div className="absolute -top-32 -right-32 w-64 h-64 rounded-full bg-primary-100 opacity-40"></div>
-      <div className="absolute -bottom-16 -left-16 w-64 h-64 rounded-full bg-secondary-100 opacity-30"></div>
+      <div className="absolute -top-32 -right-32 w-64 h-64 rounded-full bg-primary-100 opacity-40" style={{ pointerEvents: 'none' }}></div>
+      <div className="absolute -bottom-16 -left-16 w-64 h-64 rounded-full bg-secondary-100 opacity-30" style={{ pointerEvents: 'none' }}></div>
 
       {/* Contenu principal */}
-      <div className="relative max-w-7xl mx-auto pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+      <div className="relative max-w-7xl mx-auto pt-32 pb-20 px-4 sm:px-6 lg:px-8" style={{ zIndex: 15 }}>
         <div className="text-center">
-          <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
+          <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl select-text">
             <span className="block">Trouvez le service</span>
             <span className="block text-primary-600">qu'il vous faut</span>
           </h1>
-          <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-600 md:mt-6 md:text-xl">
+          <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-600 md:mt-6 md:text-xl select-text">
             Des professionnels qualifiés pour tous vos besoins à domicile. 
             <span className="block sm:inline">Simple, rapide et 100% fiable.</span>
           </p>
@@ -47,8 +61,8 @@ const Hero = () => {
       </div>
 
       {/* Barre de recherche flottante */}
-      <div className="relative max-w-4xl mx-auto -mb-16 px-4 sm:px-6 lg:px-8">
-        <div className="bg-white rounded-xl shadow-2xl p-6 border border-gray-100">
+      <div className="relative max-w-4xl mx-auto -mb-16 px-4 sm:px-6 lg:px-8" style={{ zIndex: 20 }}>
+        <form onSubmit={handleSearch} className="bg-white rounded-xl shadow-2xl p-6 border border-gray-100 relative" style={{ userSelect: 'none' }}>
           <div className="flex flex-col md:flex-row gap-4">
             <div className="flex-1">
               <label htmlFor="service" className="sr-only">Service</label>
@@ -62,8 +76,11 @@ const Hero = () => {
                   type="text"
                   name="service"
                   id="service"
-                  className="focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 pr-3 py-4 border-gray-300 rounded-lg text-base"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 pr-3 py-4 border-gray-300 rounded-lg text-base cursor-text hover:border-gray-400 transition-colors"
                   placeholder="Plomberie, ménage, bricolage..."
+                  style={{ cursor: 'text', userSelect: 'text' }}
                 />
               </div>
             </div>
@@ -79,22 +96,26 @@ const Hero = () => {
                 <select
                   id="location"
                   name="location"
-                  className="focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 pr-10 py-4 text-base border-gray-300 rounded-lg"
+                  value={selectedLocation}
+                  onChange={(e) => setSelectedLocation(e.target.value)}
+                  className="focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 pr-10 py-4 text-base border-gray-300 rounded-lg cursor-pointer hover:border-gray-400 transition-colors"
+                  style={{ cursor: 'pointer' }}
                 >
-                  <option>Partout en France</option>
-                  <option>Paris</option>
-                  <option>Lyon</option>
-                  <option>Marseille</option>
-                  <option>Toulouse</option>
-                  <option>Bordeaux</option>
+                  <option>Partout au Maroc</option>
+                  <option>Casablanca</option>
+                  <option>Rabat</option>
+                  <option>Marrakech</option>
+                  <option>Fès</option>
+                  <option>Agadir</option>
                 </select>
               </div>
             </div>
             
             <div className="w-full sm:w-auto">
               <button
-                type="button"
-                className="w-full flex items-center justify-center px-6 py-4 border border-transparent rounded-lg shadow-sm text-base font-medium text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-all duration-300 transform hover:scale-105"
+                type="submit"
+                className="w-full flex items-center justify-center px-6 py-4 border border-transparent rounded-lg shadow-sm text-base font-medium text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-all duration-300 transform hover:scale-105 cursor-pointer"
+                style={{ cursor: 'pointer' }}
               >
                 <span>Rechercher</span>
                 <svg className="ml-2 -mr-1 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
@@ -124,10 +145,8 @@ const Hero = () => {
               Avis vérifiés
             </span>
           </div>
-        </div>
+        </form>
       </div>
-      
-
     </div>
   );
 };

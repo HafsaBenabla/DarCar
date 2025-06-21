@@ -343,9 +343,9 @@ const Home = () => {
             
             <div className="grid md:grid-cols-3 gap-8">
               {[
-                { name: "Sophie Martin", role: "Particulier", content: "Service de ménage impeccable ! La personne était ponctuelle et très professionnelle. Je recommande vivement.", rating: 5 },
-                { name: "Thomas Dubois", role: "Entrepreneur", content: "J'ai fait appel à un plombier via DarCar et j'ai été agréablement surpris par la qualité du service.", rating: 5 },
-                { name: "Laura Petit", role: "Mère de famille", content: "La nounou que j'ai trouvée est géniale avec mes enfants. Je suis ravie du service proposé par DarCar.", rating: 4 }
+                { name: "Leila Mansouri", role: "Particulier", content: "Service de ménage impeccable ! La personne était ponctuelle et très professionnelle. Je recommande vivement.", rating: 5 },
+                { name: "Omar Alami", role: "Entrepreneur", content: "J'ai fait appel à un plombier via DarCar et j'ai été agréablement surpris par la qualité du service.", rating: 5 },
+                { name: "Nadia Berrada", role: "Mère de famille", content: "La nounou que j'ai trouvée est géniale avec mes enfants. Je suis ravie du service proposé par DarCar.", rating: 4 }
               ].map((testimonial, index) => (
                 <div key={index} className="bg-gray-50 p-8 rounded-xl border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300">
                   <div className="flex items-center mb-4">

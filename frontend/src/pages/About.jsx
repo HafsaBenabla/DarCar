@@ -5,21 +5,21 @@ import { FaHandshake, FaRocket, FaStar, FaUsers, FaAward, FaHeart, FaCheckCircle
 // Exemple de données pour les membres de l'équipe
 const teamMembers = [
   {
-    name: 'Jean Dupont',
+    name: 'Ahmed Benali',
     role: 'Fondateur & CEO',
     bio: 'Passionné par l\'innovation au service des gens.',
     image: 'https://randomuser.me/api/portraits/men/75.jpg',
     expertise: ['Stratégie', 'Innovation', 'Leadership']
   },
   {
-    name: 'Marie Martin',
+    name: 'Fatima Zahra',
     role: 'Responsable Qualité',
     bio: 'S\'assure que chaque service est une expérience 5 étoiles.',
     image: 'https://randomuser.me/api/portraits/women/75.jpg',
     expertise: ['Qualité', 'Processus', 'Excellence']
   },
   {
-    name: 'Thomas Leroy',
+    name: 'Karim El Amrani',
     role: 'Responsable Partenariats',
     bio: 'Tisse des liens forts avec nos incroyables prestataires.',
     image: 'https://randomuser.me/api/portraits/men/76.jpg',

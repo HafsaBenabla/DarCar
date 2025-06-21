@@ -142,7 +142,7 @@ const Contact = () => {
                 </div>
                 <h3 className="text-xl font-bold text-gray-800 mb-3">Email</h3>
                 <p className="text-gray-600 mb-4">Envoyez-nous un message détaillé</p>
-                <div className="text-lg font-semibold text-red-600">contact@darcar.com</div>
+                <div className="text-lg font-semibold text-red-600">contact@darcar.ma</div>
                 <div className="mt-4 flex items-center text-sm text-gray-500">
                   <FaClock className="text-red-500 mr-2" />
                   <span>Réponse sous 24h</span>
@@ -184,7 +184,7 @@ const Contact = () => {
                       </div>
                       <div>
                         <h3 className="text-xl font-semibold text-gray-800 mb-2">Notre Adresse</h3>
-                        <p className="text-gray-600 text-lg">123 Avenue Mohammed V<br/>Marrakech, Maroc</p>
+                        <p className="text-gray-600 text-lg">123 Avenue Mohammed V<br/>20000 Casablanca, Maroc</p>
                       </div>
                     </div>
 
@@ -194,7 +194,7 @@ const Contact = () => {
                       </div>
                       <div>
                         <h3 className="text-xl font-semibold text-gray-800 mb-2">Téléphone</h3>
-                        <p className="text-gray-600 text-lg">+212 5XX-XXXXXX</p>
+                        <p className="text-gray-600 text-lg">+212 5 22 34 56 78</p>
                         <p className="text-sm text-gray-500">Lun-Ven: 9h-18h | Sam: 9h-12h</p>
                       </div>
                     </div>
@@ -205,7 +205,7 @@ const Contact = () => {
                       </div>
                       <div>
                         <h3 className="text-xl font-semibold text-gray-800 mb-2">Email</h3>
-                        <p className="text-red-600 text-lg hover:underline cursor-pointer">contact@darcar.com</p>
+                        <p className="text-red-600 text-lg hover:underline cursor-pointer">contact@darcar.ma</p>
                         <p className="text-sm text-gray-500">Réponse sous 24h</p>
                       </div>
                     </div>

@@ -29,9 +29,9 @@ const Footer = () => {
   ];
 
   const contactInfo = [
-    { icon: <FaMapMarkerAlt className="text-primary-600" />, text: '123 Rue de Paris, 75001 Paris, France' },
-    { icon: <FaPhone className="text-primary-600" />, text: '+33 1 23 45 67 89' },
-    { icon: <FaEnvelope className="text-primary-600" />, text: 'contact@darcar.fr' },
+    { icon: <FaMapMarkerAlt className="text-primary-600" />, text: '123 Avenue Mohammed V, 20000 Casablanca, Maroc' },
+    { icon: <FaPhone className="text-primary-600" />, text: '+212 5 22 34 56 78' },
+    { icon: <FaEnvelope className="text-primary-600" />, text: 'contact@darcar.ma' },
   ];
 
   return (
