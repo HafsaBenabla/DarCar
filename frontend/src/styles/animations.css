@@ -167,3 +167,49 @@
 .animate-fade-in-right {
   animation: fade-in-right 0.8s ease-out forwards;
 }
+
+/* Styles pour l'effet de rotation 3D des cartes */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Animation de rotation pour les cartes */
+.group:hover .rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Amélioration de l'effet de rotation */
+.group {
+  perspective: 1000px;
+}
+
+.group > div {
+  transition: transform 0.7s ease-in-out;
+  transform-style: preserve-3d;
+}
+
+.group:hover > div {
+  transform: rotateY(180deg);
+}
+
+/* Styles pour les faces des cartes */
+.group .absolute {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.group .rotate-y-180 {
+  transform: rotateY(180deg);
+}
