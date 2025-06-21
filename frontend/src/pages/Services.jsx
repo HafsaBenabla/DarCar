@@ -317,14 +317,14 @@ const Services = () => {
                   {filteredProviders.map((provider) => (
                     <div 
                       key={provider.id}
-                      className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-100 group"
+                      className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-100"
                     >
                       {/* Image et badges */}
                       <div className="relative">
                         <img 
                           src={provider.image}
                           alt={provider.name}
-                          className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                          className="w-full h-48 object-cover transition-transform duration-300"
                         />
                         <div className="absolute top-4 left-4 flex gap-2">
                           {provider.verified && (
