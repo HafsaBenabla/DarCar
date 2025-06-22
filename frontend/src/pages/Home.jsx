@@ -138,16 +138,16 @@ const Home = () => {
                     className="relative flex-shrink-0 px-4 opacity-0 animate-fade-in-up"
                     style={{ animationFillMode: 'forwards', animationDelay: `${index * 300}ms` }}
                   >
-                    <div className="group relative w-64 h-64 bg-white rounded-full flex items-center justify-center p-2 border-2 border-gray-100 shadow-xl transition-all duration-300 hover:scale-105">
+                    <div className="relative w-64 h-64 bg-white rounded-full flex items-center justify-center p-2 border-2 border-gray-100 shadow-xl transition-all duration-300 hover:scale-105">
                       <div className="w-full h-full rounded-full border-2 border-dashed border-gray-200 flex flex-col items-center justify-center px-6 text-center">
-                        <h3 className="text-lg font-bold mb-2 text-gray-800 mt-8 group-hover:text-primary-600 transition-colors">{item.title}</h3>
+                        <h3 className="text-lg font-bold mb-2 text-gray-800 mt-8">{item.title}</h3>
                         <p className="text-gray-600 text-sm leading-relaxed">{item.description}</p>
-                </div>
-                      <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-2xl border-8 border-white z-10 group-hover:bg-primary-700 transition-colors">
+                      </div>
+                      <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-2xl border-8 border-white z-10">
                         {item.number}
-              </div>
-                </div>
-              </div>
+                      </div>
+                    </div>
+                  </div>
               
                   {index < whyChooseUsData.length - 1 && (
                     <div 
@@ -155,7 +155,7 @@ const Home = () => {
                       style={{ animationFillMode: 'forwards', animationDelay: `${index * 300 + 150}ms` }}
                     >
                       <div className="w-full h-full border-l-2 md:border-l-0 md:border-t-2 border-dashed border-gray-300"></div>
-                </div>
+                    </div>
                   )}
                 </React.Fragment>
               ))}

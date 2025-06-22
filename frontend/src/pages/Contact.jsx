@@ -108,8 +108,8 @@ const Contact = () => {
 
             <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
               {/* Support Client */}
-              <div className="group bg-gradient-to-br from-red-50 to-red-100 p-8 rounded-2xl border border-red-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                <div className="bg-red-600 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <div className="bg-gradient-to-br from-red-50 to-red-100 p-8 rounded-2xl border border-red-200 hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:from-red-100">
+                <div className="bg-red-600 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-transform duration-300">
                   <FaHeadset className="text-white text-2xl" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-800 mb-3">Support Client</h3>
@@ -122,8 +122,8 @@ const Contact = () => {
               </div>
 
               {/* Chat en Direct */}
-              <div className="group bg-gradient-to-br from-red-50 to-red-100 p-8 rounded-2xl border border-red-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                <div className="bg-red-600 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <div className="bg-gradient-to-br from-red-50 to-red-100 p-8 rounded-2xl border border-red-200 hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:from-red-100">
+                <div className="bg-red-600 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-transform duration-300">
                   <FaComments className="text-white text-2xl" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-800 mb-3">Chat en Direct</h3>
@@ -136,8 +136,8 @@ const Contact = () => {
               </div>
 
               {/* Email */}
-              <div className="group bg-gradient-to-br from-red-50 to-red-100 p-8 rounded-2xl border border-red-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                <div className="bg-red-600 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <div className="bg-gradient-to-br from-red-50 to-red-100 p-8 rounded-2xl border border-red-200 hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:from-red-100">
+                <div className="bg-red-600 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-transform duration-300">
                   <FaEnvelope className="text-white text-2xl" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-800 mb-3">Email</h3>
