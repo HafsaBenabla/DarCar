@@ -62,8 +62,8 @@ const About = () => {
             {/* Phrase développée avec animations */}
             <div className="max-w-5xl mx-auto space-y-4 animate-fade-in-up">
               <p className="text-2xl md:text-3xl font-light mb-4">
-                Votre partenaire de confiance pour tous les services à domicile
-              </p>
+              Votre partenaire de confiance pour tous les services à domicile
+            </p>
               <div className="flex flex-wrap justify-center gap-4 text-lg md:text-xl opacity-90">
                 <span className="bg-red-500/20 backdrop-blur-sm px-4 py-2 rounded-full animate-fade-in-left" style={{animationDelay: '0.3s'}}>
                   🔧 Dépannage rapide
@@ -135,8 +135,8 @@ const About = () => {
                     <p className="font-semibold text-gray-800 mb-2 flex items-center">
                       <FaHandshake className="text-red-500 mr-2 text-2xl" />
                       Notre Engagement
-                    </p>
-                    <p>
+                </p>
+                <p>
                       Notre mission est de connecter les gens avec des experts passionnés et compétents pour tous les besoins du quotidien, du dépannage urgent au projet planifié.
                     </p>
                   </div>
@@ -144,10 +144,10 @@ const About = () => {
                     <p className="font-semibold text-gray-800 mb-2 flex items-center">
                       <FaStar className="text-red-500 mr-2 text-2xl" />
                       Notre Promesse
-                    </p>
-                    <p>
+                </p>
+                <p>
                       Nous sommes une équipe dévouée à créer une expérience exceptionnelle, tant pour nos clients que pour les prestataires qui nous rejoignent.
-                    </p>
+                </p>
                   </div>
                 </div>
               </div>

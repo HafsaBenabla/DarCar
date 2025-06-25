@@ -142,12 +142,12 @@ const Home = () => {
                       <div className="w-full h-full rounded-full border-2 border-dashed border-gray-200 flex flex-col items-center justify-center px-6 text-center">
                         <h3 className="text-lg font-bold mb-2 text-gray-800 mt-8">{item.title}</h3>
                         <p className="text-gray-600 text-sm leading-relaxed">{item.description}</p>
-                      </div>
+                </div>
                       <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-2xl border-8 border-white z-10">
                         {item.number}
-                      </div>
-                    </div>
-                  </div>
+              </div>
+                </div>
+              </div>
               
                   {index < whyChooseUsData.length - 1 && (
                     <div 
@@ -155,7 +155,7 @@ const Home = () => {
                       style={{ animationFillMode: 'forwards', animationDelay: `${index * 300 + 150}ms` }}
                     >
                       <div className="w-full h-full border-l-2 md:border-l-0 md:border-t-2 border-dashed border-gray-300"></div>
-                    </div>
+                </div>
                   )}
                 </React.Fragment>
               ))}

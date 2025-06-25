@@ -144,7 +144,7 @@ const Services = () => {
   ];
 
   const filteredProviders = providers.filter(provider => {
-    const matchesSearch = provider.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    const matchesSearch = provider.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
                          provider.service.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          provider.location.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesCategory = !selectedCategory || provider.category === selectedCategory;
@@ -152,13 +152,13 @@ const Services = () => {
     const matchesRating = provider.rating >= ratingFilter;
     return matchesSearch && matchesCategory && matchesPrice && matchesRating;
   });
-
+  
   const renderStars = (rating) => {
     return Array(5).fill(0).map((_, i) => (
-      <FaStar 
-        key={i} 
-        className={`${i < Math.floor(rating) ? 'text-yellow-400' : 'text-gray-300'} w-4 h-4`} 
-      />
+          <FaStar 
+            key={i} 
+            className={`${i < Math.floor(rating) ? 'text-yellow-400' : 'text-gray-300'} w-4 h-4`} 
+          />
     ));
   };
 
@@ -211,16 +211,16 @@ const Services = () => {
               <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-100 sticky top-8">
                 <div className="flex items-center justify-between mb-6">
                   <h3 className="text-lg font-bold text-gray-800">Filtres</h3>
-                  <button
+                    <button 
                     onClick={clearFilters}
                     className="text-sm text-red-600 hover:text-red-700 font-medium"
                   >
                     Tout effacer
-                  </button>
-                </div>
-
+                    </button>
+                  </div>
+                
                 {/* Catégories */}
-                <div className="mb-6">
+                  <div className="mb-6">
                   <h4 className="font-semibold text-gray-700 mb-3">Catégories</h4>
                   <div className="space-y-2">
                     {categories.map((category) => (
@@ -230,7 +230,7 @@ const Services = () => {
                           name="category"
                           value={category.id}
                           checked={selectedCategory === category.id}
-                          onChange={(e) => setSelectedCategory(e.target.value)}
+                    onChange={(e) => setSelectedCategory(e.target.value)}
                           className="sr-only"
                         />
                         <div className={`w-4 h-4 rounded-full border-2 mr-3 flex items-center justify-center ${
@@ -247,7 +247,7 @@ const Services = () => {
                     ))}
                   </div>
                 </div>
-
+                
                 {/* Fourchette de prix */}
                 <div className="mb-6">
                   <h4 className="font-semibold text-gray-700 mb-3">Prix (DH/heure)</h4>
@@ -256,17 +256,17 @@ const Services = () => {
                       <span>{priceRange[0]} DH</span>
                       <span>{priceRange[1]} DH</span>
                     </div>
-                    <input
-                      type="range"
-                      min="0"
+                  <input
+                    type="range"
+                    min="0"
                       max="500"
-                      value={priceRange[1]}
+                    value={priceRange[1]}
                       onChange={(e) => setPriceRange([priceRange[0], parseInt(e.target.value)])}
                       className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
-                    />
+                  />
                   </div>
                 </div>
-
+                
                 {/* Note minimum */}
                 <div className="mb-6">
                   <h4 className="font-semibold text-gray-700 mb-3">Note minimum</h4>
@@ -284,11 +284,11 @@ const Services = () => {
                         }`} />
                       </button>
                     ))}
-                  </div>
+              </div>
                 </div>
               </div>
             </div>
-
+            
             {/* Contenu principal */}
             <div className="flex-1">
               {/* En-tête des résultats */}
@@ -302,8 +302,8 @@ const Services = () => {
                       <p className="text-gray-600 mt-1">
                         Prix de {Math.min(...filteredProviders.map(p => p.price))} à {Math.max(...filteredProviders.map(p => p.price))} DH/heure
                       </p>
-                    )}
-                  </div>
+                        )}
+                      </div>
                   <div className="flex items-center gap-2">
                     <FaFilter className="text-red-500" />
                     <span className="text-sm text-gray-600">Filtres actifs</span>
@@ -331,21 +331,21 @@ const Services = () => {
                             <div className="bg-red-500 text-white px-2 py-1 rounded-full text-xs font-semibold flex items-center gap-1">
                               <FaCheckCircle className="w-3 h-3" />
                               Vérifié
-                            </div>
+                      </div>
                           )}
                           {provider.available && (
                             <div className="bg-white/90 backdrop-blur-sm text-red-600 px-2 py-1 rounded-full text-xs font-semibold border border-red-200">
                               Disponible
-                            </div>
-                          )}
                         </div>
+                      )}
+                    </div>
                         <div className="absolute top-4 right-4">
                           <div className="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">
                             {provider.price} DH/h
                           </div>
-                        </div>
-                      </div>
-
+                </div>
+              </div>
+              
                       {/* Contenu de la carte */}
                       <div className="p-6">
                         <div className="flex justify-between items-start mb-4">
@@ -355,20 +355,20 @@ const Services = () => {
                             <div className="flex items-center gap-2 text-sm text-gray-600">
                               <FaMapMarkerAlt className="text-red-500 w-4 h-4" />
                               <span>{provider.location}</span>
-                            </div>
-                          </div>
+                  </div>
+                </div>
                           <div className="text-right">
                             <div className="flex items-center gap-1 mb-1">
-                              {renderStars(provider.rating)}
+                                  {renderStars(provider.rating)}
                               <span className="text-sm text-gray-600">({provider.reviews})</span>
-                            </div>
+                                </div>
                             <div className="text-sm text-gray-500 flex items-center gap-1">
                               <FaRegClock className="w-3 h-3" />
                               Réponse en {provider.responseTime}
                             </div>
                           </div>
                         </div>
-
+                        
                         <p className="text-gray-600 text-sm mb-4 line-clamp-2">{provider.bio}</p>
 
                         {/* Services proposés */}
@@ -380,47 +380,47 @@ const Services = () => {
                                 className="bg-red-50 text-red-700 px-3 py-1 rounded-full text-xs font-medium border border-red-100"
                               >
                                 {service}
-                              </span>
-                            ))}
+                                  </span>
+                                ))}
                             {provider.services.length > 3 && (
                               <span className="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs border border-gray-200">
                                 +{provider.services.length - 3} autres
                               </span>
                             )}
-                          </div>
-                        </div>
-
+                              </div>
+                            </div>
+                            
                         {/* Actions */}
                         <div className="flex gap-3">
-                          <Link 
-                            to={`/prestataire/${provider.id}`}
+                              <Link 
+                                to={`/prestataire/${provider.id}`}
                             className="flex-1 bg-red-600 hover:bg-red-700 text-white py-3 px-4 rounded-lg transition-colors text-center font-semibold shadow-md hover:shadow-lg"
-                          >
+                              >
                             Voir le profil
-                          </Link>
+                              </Link>
                           <button className="bg-gray-100 hover:bg-gray-200 text-gray-700 py-3 px-4 rounded-lg transition-colors font-semibold border border-gray-200">
                             Contacter
                           </button>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  ))}
-                </div>
-              ) : (
+                    ))}
+                  </div>
+                ) : (
                 <div className="bg-white rounded-xl shadow-lg p-12 text-center border border-gray-100">
                   <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <FaSearch className="text-gray-400 text-2xl" />
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-2">Aucun résultat trouvé</h3>
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-800 mb-2">Aucun résultat trouvé</h3>
                   <p className="text-gray-600 mb-6">Essayez de modifier vos critères de recherche.</p>
-                  <button 
+                    <button 
                     onClick={clearFilters}
                     className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg transition-colors font-semibold shadow-md hover:shadow-lg"
-                  >
-                    Réinitialiser les filtres
-                  </button>
-                </div>
-              )}
+                    >
+                      Réinitialiser les filtres
+                    </button>
+                  </div>
+                )}
             </div>
           </div>
         </div>
