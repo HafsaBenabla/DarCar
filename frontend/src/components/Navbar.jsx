@@ -1,12 +1,21 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { FaBars, FaTimes, FaUser } from 'react-icons/fa';
+import { FaBars, FaTimes, FaUser, FaUserCircle } from 'react-icons/fa';
 
 const Navbar = ({ lightOnTop = false }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [showProfileMenu, setShowProfileMenu] = useState(false);
 
+  // Vérifie l'état de connexion à chaque rendu
+  useEffect(() => {
+    setIsAuthenticated(!!localStorage.getItem('isAuthenticated'));
+  }, [location]);
+
+  // Gère l'effet de scroll pour la navbar
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
@@ -56,10 +65,35 @@ const Navbar = ({ lightOnTop = false }) => {
 
             {/* Right side buttons - Desktop */}
             <div className="hidden md:flex items-center space-x-8">
-              <Link to="/login" className={`flex items-center space-x-2 font-medium ${navIsSolid ? 'text-gray-600 hover:text-red-600' : 'text-white hover:text-red-300'}`}>
-                <FaUser />
-                <span>Connexion</span>
-              </Link>
+              {isAuthenticated ? (
+                <div className="relative">
+                  <button
+                    className={`flex items-center space-x-2 font-medium focus:outline-none ${navIsSolid ? 'text-gray-600 hover:text-red-600' : 'text-white hover:text-red-300'}`}
+                    onClick={() => setShowProfileMenu((s) => !s)}
+                  >
+                    <FaUserCircle size={28} />
+                  </button>
+                  {showProfileMenu && (
+                    <div className="absolute right-0 mt-2 w-40 bg-white border rounded-lg shadow-lg z-50">
+                      <Link to="/profile" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">Mon profil</Link>
+                      <button
+                        className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100"
+                        onClick={() => {
+                          localStorage.removeItem('isAuthenticated');
+                          setShowProfileMenu(false);
+                          setIsAuthenticated(false);
+                          navigate('/');
+                        }}
+                      >Déconnexion</button>
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <Link to="/login" className={`flex items-center space-x-2 font-medium ${navIsSolid ? 'text-gray-600 hover:text-red-600' : 'text-white hover:text-red-300'}`}>
+                  <FaUser />
+                  <span>Connexion</span>
+                </Link>
+              )}
               <Link to="/become-pro" className="bg-red-600 text-white px-5 py-2.5 rounded-lg font-semibold hover:bg-red-700 transition-all duration-300 transform hover:scale-105 shadow-md">
                 Devenir prestataire
               </Link>
@@ -94,10 +128,28 @@ const Navbar = ({ lightOnTop = false }) => {
             </Link>
           ))}
           <div className="pt-8 border-t border-gray-700 w-4/5 text-center flex flex-col items-center space-y-6">
-            <Link to="/login" className="text-white text-2xl flex items-center space-x-2" onClick={() => setIsOpen(false)}>
-              <FaUser />
-              <span>Connexion</span>
-            </Link>
+            {isAuthenticated ? (
+              <div className="flex flex-col items-center space-y-2">
+                <button className="text-white text-3xl flex items-center space-x-2" onClick={() => setIsOpen(false)}>
+                  <FaUserCircle />
+                  <span>Profil</span>
+                </button>
+                <button
+                  className="text-white text-xl hover:text-red-400"
+                  onClick={() => {
+                    localStorage.removeItem('isAuthenticated');
+                    setIsOpen(false);
+                    setIsAuthenticated(false);
+                    navigate('/');
+                  }}
+                >Déconnexion</button>
+              </div>
+            ) : (
+              <Link to="/login" className="text-white text-2xl flex items-center space-x-2" onClick={() => setIsOpen(false)}>
+                <FaUser />
+                <span>Connexion</span>
+              </Link>
+            )}
             <Link to="/become-pro" className="bg-red-600 text-white px-8 py-4 rounded-lg text-xl font-bold" onClick={() => setIsOpen(false)}>
               Devenir prestataire
             </Link>

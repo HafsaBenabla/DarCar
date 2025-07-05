@@ -42,7 +42,11 @@ const Register = () => {
         // window.location.href = '/login';
       } else {
         const errorData = await response.json();
-        alert('Erreur : ' + (errorData.message || 'Impossible de créer le compte.'));
+        if (response.status === 409 && errorData.message === "Cet email est déjà utilisé.") {
+          alert("Cet email est déjà utilisé. Veuillez en choisir un autre.");
+        } else {
+          alert('Erreur : ' + (errorData.message || 'Impossible de créer le compte.'));
+        }
       }
     } catch (error) {
       alert('Erreur réseau : ' + error.message);

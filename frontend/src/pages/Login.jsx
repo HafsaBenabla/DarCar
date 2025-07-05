@@ -6,10 +6,24 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // TODO: Implémenter la logique de connexion
-    console.log('Login attempt:', { email, password });
+    try {
+      const response = await fetch('http://localhost:5000/users/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password })
+      });
+      if (response.ok) {
+        localStorage.setItem('isAuthenticated', 'true');
+        window.location.href = '/'; // Redirige vers l'accueil
+      } else {
+        const errorData = await response.json();
+        alert('Erreur : ' + (errorData.message || 'Identifiants invalides.'));
+      }
+    } catch (error) {
+      alert('Erreur réseau : ' + error.message);
+    }
   };
 
   return (

@@ -12,6 +12,24 @@ router.get('/', async (req, res) => {
   }
 });
 
+// Connexion utilisateur
+router.post('/login', async (req, res) => {
+  const { email, password } = req.body;
+  try {
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(401).json({ message: "Utilisateur non trouvé" });
+    }
+    // Pour une vraie app, utiliser bcrypt pour vérifier le hash du mot de passe !
+    if (user.password !== password) {
+      return res.status(401).json({ message: "Mot de passe incorrect" });
+    }
+    res.status(200).json({ message: "Connexion réussie", user: { email: user.email, nom: user.nom } });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
 // Créer un utilisateur
 router.post('/', async (req, res) => {
   console.log('Tentative de création de compte avec :', req.body);
@@ -30,7 +48,12 @@ router.post('/', async (req, res) => {
     res.status(201).json(newUser);
   } catch (error) {
     console.error('Erreur lors de la création du compte :', error.message);
-    res.status(400).json({ message: error.message });
+    // Gérer l'erreur de duplication d'email
+    if (error.code === 11000 && error.keyPattern && error.keyPattern.email) {
+      res.status(409).json({ message: "Cet email est déjà utilisé." });
+    } else {
+      res.status(400).json({ message: error.message });
+    }
   }
 });
 
