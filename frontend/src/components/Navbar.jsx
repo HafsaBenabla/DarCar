@@ -8,11 +8,13 @@ const Navbar = ({ lightOnTop = false }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [userEmail, setUserEmail] = useState(null);
   const [showProfileMenu, setShowProfileMenu] = useState(false);
 
   // Vérifie l'état de connexion à chaque rendu
   useEffect(() => {
     setIsAuthenticated(!!localStorage.getItem('isAuthenticated'));
+    setUserEmail(localStorage.getItem('userEmail'));
   }, [location]);
 
   // Gère l'effet de scroll pour la navbar
@@ -61,6 +63,16 @@ const Navbar = ({ lightOnTop = false }) => {
                   <span className={`absolute bottom--1 left-0 w-0 h-0.5 bg-red-500 transition-all duration-300 group-hover:w-full ${location.pathname === link.path ? 'w-full' : ''}`}></span>
                 </Link>
               ))}
+              {/* Lien Dashboard pour l'admin */}
+              {isAuthenticated && userEmail === 'benablahafsa@gmail.com' && (
+                <Link
+                  to="/dashboard"
+                  className={`text-xl font-semibold transition-colors duration-300 relative group ${navIsSolid ? 'text-gray-700 hover:text-red-600' : 'text-white hover:text-red-300'}`}
+                >
+                  Dashboard
+                  <span className={`absolute bottom--1 left-0 w-0 h-0.5 bg-red-500 transition-all duration-300 group-hover:w-full ${location.pathname === '/dashboard' ? 'w-full' : ''}`}></span>
+                </Link>
+              )}
             </div>
 
             {/* Right side buttons - Desktop */}

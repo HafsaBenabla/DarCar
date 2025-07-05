@@ -15,7 +15,11 @@ const Login = () => {
         body: JSON.stringify({ email, password })
       });
       if (response.ok) {
+        const data = await response.json();
         localStorage.setItem('isAuthenticated', 'true');
+        if (data.user && data.user.email) {
+          localStorage.setItem('userEmail', data.user.email);
+        }
         window.location.href = '/'; // Redirige vers l'accueil
       } else {
         const errorData = await response.json();
