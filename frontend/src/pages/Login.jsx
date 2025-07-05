@@ -20,6 +20,9 @@ const Login = () => {
         if (data.user && data.user.email) {
           localStorage.setItem('userEmail', data.user.email);
         }
+        if (data.user && data.user.nom) {
+          localStorage.setItem('userName', data.user.nom);
+        }
         window.location.href = '/'; // Redirige vers l'accueil
       } else {
         const errorData = await response.json();

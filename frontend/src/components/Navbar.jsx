@@ -10,11 +10,13 @@ const Navbar = ({ lightOnTop = false }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [userEmail, setUserEmail] = useState(null);
   const [showProfileMenu, setShowProfileMenu] = useState(false);
+  const [userName, setUserName] = useState(null);
 
   // Vérifie l'état de connexion à chaque rendu
   useEffect(() => {
     setIsAuthenticated(!!localStorage.getItem('isAuthenticated'));
     setUserEmail(localStorage.getItem('userEmail'));
+    setUserName(localStorage.getItem('userName'));
   }, [location]);
 
   // Gère l'effet de scroll pour la navbar
@@ -80,10 +82,13 @@ const Navbar = ({ lightOnTop = false }) => {
               {isAuthenticated ? (
                 <div className="relative">
                   <button
-                    className={`flex items-center space-x-2 font-medium focus:outline-none ${navIsSolid ? 'text-gray-600 hover:text-red-600' : 'text-white hover:text-red-300'}`}
+                    className={`flex items-center space-x-2 font-medium bg-black bg-opacity-10 hover:bg-opacity-20 rounded-full px-4 py-2 transition-colors duration-200 text-lg focus:outline-none focus:ring-0 ${navIsSolid ? 'text-gray-600 hover:text-red-600' : 'text-white hover:text-red-300'}`}
                     onClick={() => setShowProfileMenu((s) => !s)}
                   >
-                    <FaUserCircle size={28} />
+                    <FaUserCircle size={32} className="text-red-600" />
+                    {userName && (
+                      <span className="ml-2 font-semibold text-base truncate max-w-[120px] text-white">{userName}</span>
+                    )}
                   </button>
                   {showProfileMenu && (
                     <div className="absolute right-0 mt-2 w-40 bg-white border rounded-lg shadow-lg z-50">
