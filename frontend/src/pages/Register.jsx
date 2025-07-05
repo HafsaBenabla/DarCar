@@ -19,11 +19,36 @@ const Register = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // TODO: Implémenter la logique d'inscription
-    console.log('Register attempt:', formData);
+    // Construction des données à envoyer au backend
+    const userData = {
+      nom: formData.lastName,
+      prenom: formData.firstName,
+      email: formData.email,
+      password: formData.password,
+      telephone: formData.phone,
+      role: 'client'
+    };
+    try {
+      const response = await fetch('http://localhost:5000/users', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(userData),
+      });
+      if (response.ok) {
+        alert('Compte créé avec succès !');
+        // Optionnel : rediriger vers la page de connexion
+        // window.location.href = '/login';
+      } else {
+        const errorData = await response.json();
+        alert('Erreur : ' + (errorData.message || 'Impossible de créer le compte.'));
+      }
+    } catch (error) {
+      alert('Erreur réseau : ' + error.message);
+    }
   };
+
 
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">

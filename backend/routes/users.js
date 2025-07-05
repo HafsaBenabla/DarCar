@@ -14,6 +14,7 @@ router.get('/', async (req, res) => {
 
 // Créer un utilisateur
 router.post('/', async (req, res) => {
+  console.log('Tentative de création de compte avec :', req.body);
   const user = new User({
     nom: req.body.nom,
     prenom: req.body.prenom,
@@ -25,8 +26,10 @@ router.post('/', async (req, res) => {
 
   try {
     const newUser = await user.save();
+    console.log('Utilisateur créé avec succès :', newUser);
     res.status(201).json(newUser);
   } catch (error) {
+    console.error('Erreur lors de la création du compte :', error.message);
     res.status(400).json({ message: error.message });
   }
 });
